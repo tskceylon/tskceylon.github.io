@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import CTABand from '../components/CTABand.astro';
+import { site } from '../data/site';
+---
+<BaseLayout title="About" path="about"
+  description="SK Ceylon — trusted fire extinguisher supplier and servicing partner in Sri Lanka.">
+  <section class="mx-auto max-w-6xl px-4 py-16 max-w-3xl">
+    <SectionHeading eyebrow="About" title={`About ${site.name}`} />
+    <div class="mt-6 space-y-4 text-muted leading-relaxed">
+      <p>{site.name} supplies, installs and services certified fire extinguishers for
+        businesses and homes across Sri Lanka. From a single extinguisher to fitting out
+        a full facility, we help you meet fire-safety requirements with the right
+        equipment and dependable after-sales service.</p>
+      <p>We work with offices, factories, hotels, restaurants, schools and hospitals —
+        advising on the correct extinguisher type for each area, then keeping them
+        serviced and compliant year after year.</p>
+      <p class="text-sm">Company details, certifications and history on this page are
+        placeholders pending final content from SK Ceylon.</p>
+    </div>
+  </section>
+  <CTABand />
+</BaseLayout>

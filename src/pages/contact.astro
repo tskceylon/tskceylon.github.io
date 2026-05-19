@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import ContactForm from '../components/ContactForm.astro';
+import { site } from '../data/site';
+const waHref = `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(site.whatsappMessage)}`;
+---
+<BaseLayout title="Contact" path="contact"
+  description="Contact SK Ceylon for fire extinguisher quotes, refilling and servicing in Sri Lanka.">
+  <section class="mx-auto max-w-6xl px-4 py-16">
+    <SectionHeading eyebrow="Contact" title="Request a quote"
+      intro="Send your requirement and we’ll respond quickly. Prefer to talk? Call or WhatsApp us." />
+    <div class="mt-10 grid gap-12 md:grid-cols-2">
+      <div>
+        <ContactForm />
+      </div>
+      <div class="space-y-4 text-sm">
+        <p><span class="font-semibold">Phone:</span> <a class="text-action-dark" href={`tel:${site.phoneHref}`}>{site.phoneDisplay}</a></p>
+        <p><span class="font-semibold">WhatsApp:</span> <a class="text-action-dark" href={waHref} target="_blank" rel="noopener">Chat now</a></p>
+        <p><span class="font-semibold">Email:</span> <a class="text-action-dark" href={`mailto:${site.email}`}>{site.email}</a></p>
+        <p><span class="font-semibold">Address:</span> {site.address.street}, {site.address.city}, {site.address.country}</p>
+        <div class="pt-2">
+          {site.hours.map((h) => <p>{h.days}: {h.hours}</p>)}
+        </div>
+        <iframe
+          title="SK Ceylon location map"
+          src={site.mapEmbedUrl}
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          class="w-full h-64 rounded-lg border border-line mt-4"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

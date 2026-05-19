@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import TrustStrip from '../components/TrustStrip.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import ProductCard from '../components/ProductCard.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import CTABand from '../components/CTABand.astro';
+import { products } from '../data/products';
+import { services } from '../data/services';
+---
+<BaseLayout title="Home" path="">
+  <Hero />
+  <TrustStrip />
+  <section class="mx-auto max-w-6xl px-4 py-16">
+    <SectionHeading eyebrow="Products" title="Extinguishers for every risk"
+      intro="The right extinguisher depends on what could catch fire. Here are the types we supply." />
+    <div class="mt-8 grid gap-6 md:grid-cols-3">
+      {products.slice(0, 3).map((product) => <ProductCard product={product} />)}
+    </div>
+    <a href="/products" class="inline-block mt-6 font-bold text-action-dark border-b-2 border-action-dark">See all products →</a>
+  </section>
+  <section class="bg-surface-alt border-y border-line">
+    <div class="mx-auto max-w-6xl px-4 py-16">
+      <SectionHeading eyebrow="Services" title="More than just sales"
+        intro="We keep your extinguishers ready and your premises compliant year-round." />
+      <div class="mt-8 grid gap-6 md:grid-cols-2">
+        {services.map((service) => <ServiceCard service={service} />)}
+      </div>
+    </div>
+  </section>
+  <section class="mx-auto max-w-6xl px-4 py-16">
+    <SectionHeading eyebrow="Why SK Ceylon" title="Safety partners, not just suppliers" />
+    <div class="mt-8 grid gap-6 md:grid-cols-3 text-muted">
+      <p><strong class="text-navy">Certified products.</strong> Extinguishers meeting recognised standards.</p>
+      <p><strong class="text-navy">End-to-end service.</strong> Supply, install, refill, inspect — one partner.</p>
+      <p><strong class="text-navy">Responsive.</strong> Fast quotes by phone, WhatsApp or the form.</p>
+    </div>
+  </section>
+  <CTABand />
+</BaseLayout>
