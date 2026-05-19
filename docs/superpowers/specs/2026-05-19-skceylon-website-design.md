@@ -114,13 +114,13 @@ listing. Semantic HTML; optimized images via `astro:assets`; ~0 JS shipped.
 
 ## 9. Testing / Pre-Launch Checklist
 
-- [ ] `astro build` passes (enforced by deploy workflow)
-- [ ] Lighthouse ≥ 90 across the board (target 100 SEO & Best Practices)
-- [ ] WCAG AA contrast audit on all red interactive elements; tune tokens to pass
-- [ ] Every `tel:`, `wa.me`, `mailto:`, map embed, and nav link verified on mobile + desktop
-- [ ] Real contact-form submission confirmed delivered by email; honeypot works
-- [ ] Responsive verified at mobile / tablet / desktop (mobile-first)
-- [ ] 404 page renders correctly
+- [x] `astro build` passes — `npm run verify` exit 0; live deploy run succeeded
+- [x] Lighthouse ≥ 90 — Performance **100**, Accessibility **91**, Best Practices **100**, SEO **100**
+- [x] WCAG AA contrast audit — Header active/hover nav retuned `text-action` → `text-action-dark` (`#B91C1C`, ≈5.9:1); white-on-red only on solid buttons
+- [~] `tel:` / `wa.me` / `mailto:` / map / nav links — targets & HTTP status verified by automation locally **and on the live site** (all 200 / correct trailing-slash redirects). On-device tap-through still recommended.
+- [ ] **Real contact-form submission — NOT verified.** Requires the real Web3Forms key (currently a placeholder in `src/data/site.ts`). Owner action.
+- [ ] **Responsive at mobile/tablet/desktop — NOT visually verified.** Standard Tailwind responsive utilities used; final visual pass recommended by owner.
+- [x] 404 page renders — verified live (`https://skceylon.github.io/no-such` → custom 404)
 
 ## 10. Scope Guardrails & Open Items
 

@@ -14,8 +14,8 @@ const path = new URL(Astro.request.url).pathname.replace(/\/$/, '') || '/';
           href={item.href}
           aria-current={path === item.href ? 'page' : undefined}
           class:list={[
-            'hover:text-action transition-colors',
-            path === item.href ? 'text-action' : 'text-ink',
+            'hover:text-action-dark transition-colors',
+            path === item.href ? 'text-action-dark' : 'text-ink',
           ]}
         >{item.label}</a>
       ))}
