@@ -1,0 +1,22 @@
+---
+import { site } from '../data/site';
+const waHref = `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(site.whatsappMessage)}`;
+---
+<section class="bg-surface-alt border-b border-line">
+  <div class="mx-auto max-w-6xl px-4 py-20 md:py-28">
+    <p class="text-sm font-bold tracking-[0.2em] text-action-dark uppercase">
+      Certified Fire Safety · Sri Lanka
+    </p>
+    <h1 class="mt-4 text-4xl md:text-5xl font-extrabold leading-tight max-w-3xl">
+      Fire extinguishers & servicing you can trust
+    </h1>
+    <p class="mt-5 text-lg text-muted max-w-2xl">
+      SK Ceylon supplies, installs and services certified extinguishers for offices,
+      factories, hotels and homes — keeping your premises safe and compliant.
+    </p>
+    <div class="mt-8 flex flex-wrap gap-3">
+      <a href="/contact" class="rounded-md bg-action px-6 py-3 font-bold text-white hover:bg-action-dark transition-colors">Get a Quote</a>
+      <a href={waHref} target="_blank" rel="noopener" class="rounded-md border border-line bg-white px-6 py-3 font-semibold text-ink hover:border-action transition-colors">WhatsApp Us</a>
+    </div>
+  </div>
+</section>

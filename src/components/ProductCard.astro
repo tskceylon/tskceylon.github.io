@@ -1,0 +1,14 @@
+---
+import type { Product } from '../data/types';
+interface Props { product: Product; }
+const { product } = Astro.props;
+---
+<article class="rounded-lg border border-line bg-surface p-6 hover:border-action transition-colors">
+  <h3 class="text-lg font-extrabold text-navy">{product.name}</h3>
+  <p class="mt-2 text-sm text-muted">{product.description}</p>
+  <dl class="mt-4 space-y-1 text-sm">
+    <div class="flex gap-2"><dt class="font-semibold text-ink min-w-24">Fire class</dt><dd class="text-muted">{product.fireClasses}</dd></div>
+    <div class="flex gap-2"><dt class="font-semibold text-ink min-w-24">Best for</dt><dd class="text-muted">{product.useCases}</dd></div>
+    <div class="flex gap-2"><dt class="font-semibold text-ink min-w-24">Sizes</dt><dd class="text-muted">{product.sizes}</dd></div>
+  </dl>
+</article>

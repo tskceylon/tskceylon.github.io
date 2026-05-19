@@ -1,0 +1,18 @@
+---
+const items = [
+  { stat: 'Certified', label: 'SLS / ISO standards' },
+  { stat: 'All Brands', label: 'Sales · refilling · service' },
+  { stat: 'Island-wide', label: 'Delivery & site visits' },
+  { stat: 'Compliance', label: 'Inspection documentation' },
+];
+---
+<section class="border-b border-line bg-surface">
+  <div class="mx-auto max-w-6xl px-4 py-10 grid grid-cols-2 md:grid-cols-4 gap-6">
+    {items.map((i) => (
+      <div>
+        <p class="text-xl font-extrabold text-navy">{i.stat}</p>
+        <p class="text-sm text-muted mt-1">{i.label}</p>
+      </div>
+    ))}
+  </div>
+</section>
