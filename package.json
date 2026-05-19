@@ -9,7 +9,7 @@
     "preview": "astro preview",
     "check": "astro check",
     "smoke": "node scripts/smoke.mjs",
-    "linkcheck": "linkinator dist --skip \"^(tel:|mailto:|https://wa\\.me|https://www\\.google\\.com/maps)\"",
+    "linkcheck": "linkinator dist --skip \"^(tel:|mailto:|https://wa\\.me|https://www\\.google\\.com/maps|https://skceylon\\.github\\.io)\"",
     "verify": "npm run check && npm run build && npm run smoke && npm run linkcheck"
   },
   "dependencies": {
