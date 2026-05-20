@@ -3,7 +3,12 @@ interface Props { eyebrow?: string; title: string; intro?: string; }
 const { eyebrow, title, intro } = Astro.props;
 ---
 <div class="max-w-2xl">
-  {eyebrow && <p class="text-xs font-bold tracking-[0.2em] text-action-dark uppercase">{eyebrow}</p>}
+  {eyebrow && (
+    <p class="flex items-center gap-3 text-xs font-bold tracking-[0.2em] text-action-dark uppercase">
+      <span class="h-[2px] w-8 bg-action-dark" aria-hidden="true"></span>
+      {eyebrow}
+    </p>
+  )}
   <h2 class="mt-2 text-3xl font-extrabold">{title}</h2>
   {intro && <p class="mt-3 text-muted">{intro}</p>}
 </div>

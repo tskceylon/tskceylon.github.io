@@ -2,7 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import ServiceCard from '../components/ServiceCard.astro';
-import CTABand from '../components/CTABand.astro';
 import { services } from '../data/services';
 ---
 <BaseLayout title="Services" path="services"
@@ -14,5 +13,4 @@ import { services } from '../data/services';
       {services.map((service) => <ServiceCard service={service} />)}
     </div>
   </section>
-  <CTABand />
 </BaseLayout>

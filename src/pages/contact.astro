@@ -5,7 +5,7 @@ import ContactForm from '../components/ContactForm.astro';
 import { site } from '../data/site';
 const waHref = `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(site.whatsappMessage)}`;
 ---
-<BaseLayout title="Contact" path="contact"
+<BaseLayout title="Contact" path="contact" showCTA={false}
   description="Contact TSK Ceylon for fire extinguisher quotes, refilling and servicing in Sri Lanka.">
   <section class="mx-auto max-w-6xl px-4 py-16">
     <SectionHeading eyebrow="Contact" title="Request a quote"

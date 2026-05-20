@@ -3,11 +3,12 @@ import '@fontsource-variable/inter';
 import '../styles/global.css';
 import Seo from '../components/Seo.astro';
 import Header from '../components/Header.astro';
+import CTABand from '../components/CTABand.astro';
 import Footer from '../components/Footer.astro';
 import WhatsAppFab from '../components/WhatsAppFab.astro';
 
-interface Props { title: string; description?: string; path?: string; }
-const { title, description, path } = Astro.props;
+interface Props { title: string; description?: string; path?: string; showCTA?: boolean; }
+const { title, description, path, showCTA = true } = Astro.props;
 ---
 <!doctype html>
 <html lang="en">
@@ -24,6 +25,7 @@ const { title, description, path } = Astro.props;
     <main id="main">
       <slot />
     </main>
+    {showCTA && <CTABand />}
     <Footer />
     <WhatsAppFab />
   </body>
