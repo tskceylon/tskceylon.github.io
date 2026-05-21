@@ -43,8 +43,8 @@
       #text(size: 8pt, weight: "bold", tracking: 2pt, fill: red-dark)[COMPANY PROFILE]
     ],
     align(right + horizon)[
-      #text(size: 18pt, weight: 900, fill: navy)[TSK]
-      #text(size: 18pt, weight: 900, fill: red)[ CEYLON]
+      #text(size: 12pt, weight: 700, fill: navy, tracking: 0.5pt)[TSK]
+      #text(size: 12pt, weight: 700, fill: red, tracking: 0.5pt)[ CEYLON]
     ],
   )
 ]
