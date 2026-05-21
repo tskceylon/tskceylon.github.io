@@ -3,7 +3,7 @@ import { site } from '../data/site';
 const year = new Date().getFullYear();
 ---
 <footer class="bg-navy-soft text-slate-300">
-  <div class="mx-auto max-w-6xl px-4 py-14 grid gap-10 md:grid-cols-3">
+  <div class="container-wrap py-section-sm md:py-section grid gap-10 md:grid-cols-3">
     <div>
       <span class="inline-flex bg-white rounded-lg p-3">
         <img src="/logo.png" alt={site.name} width="81" height="80" class="h-20 w-auto" />
@@ -28,7 +28,7 @@ const year = new Date().getFullYear();
     </div>
   </div>
   <div class="border-t border-white/10">
-    <p class="mx-auto max-w-6xl px-4 py-5 text-xs text-slate-400">
+    <p class="container-wrap py-5 text-xs text-slate-400">
       © {year} {site.legalName}. All rights reserved.
     </p>
   </div>

@@ -18,6 +18,16 @@
      Tune these to taste — lighter alpha = subtler, more alpha = "designed". */
   --shadow-card:       0 1px 2px 0 rgb(20 33 61 / 0.04), 0 4px 12px -2px rgb(20 33 61 / 0.06);
   --shadow-card-hover: 0 2px 4px 0 rgb(20 33 61 / 0.06), 0 12px 24px -4px rgb(20 33 61 / 0.10);
+
+  /* Semantic spacing scale. Tailwind v4 exposes these as py-section, mt-strip, gap-hero etc. */
+  --spacing-section: 5rem;       /* 80px — content section, desktop */
+  --spacing-section-sm: 3rem;    /* 48px — content section, mobile */
+  --spacing-hero: 6rem;          /* 96px — hero / 404 / heavy bands, desktop */
+  --spacing-hero-sm: 4rem;       /* 64px — hero / 404 / heavy bands, mobile */
+  --spacing-strip: 3.5rem;       /* 56px — narrow strip (TrustStrip), desktop */
+  --spacing-strip-sm: 2.5rem;    /* 40px — narrow strip, mobile */
+  --spacing-gutter: 1rem;        /* 16px — container horizontal gutter, mobile */
+  --spacing-gutter-md: 1.5rem;   /* 24px — container horizontal gutter, tablet+ */
 }
 
 @layer base {
@@ -37,4 +47,8 @@
     background: var(--color-navy); color: #fff; padding: .75rem 1rem; border-radius: 0 0 .5rem 0;
   }
   .skip-link:focus { left: 0; }
+}
+
+@utility container-wrap {
+  @apply mx-auto max-w-6xl px-gutter sm:px-gutter-md;
 }

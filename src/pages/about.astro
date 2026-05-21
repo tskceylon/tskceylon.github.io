@@ -7,7 +7,7 @@ import { facilityImage } from '../data/images';
 ---
 <BaseLayout title="About" path="about"
   description="TSK Ceylon — trusted fire extinguisher supplier and servicing partner in Sri Lanka.">
-  <section class="mx-auto max-w-6xl px-4 py-16">
+  <section class="container-wrap py-section-sm md:py-section">
     <SectionHeading eyebrow="About" title={`About ${site.name}`} />
     <div class="mt-8 overflow-hidden rounded-2xl border border-line shadow-card">
       <Image
@@ -19,7 +19,7 @@ import { facilityImage } from '../data/images';
         class="aspect-[16/9] w-full object-cover"
       />
     </div>
-    <div class="mx-auto mt-10 max-w-3xl space-y-4 text-muted leading-relaxed">
+    <div class="mx-auto mt-8 max-w-3xl space-y-4 text-muted leading-relaxed">
       <p>{site.name} supplies, installs and services certified fire extinguishers for
         businesses and homes across Sri Lanka. From a single extinguisher to fitting out
         a full facility, we help you meet fire-safety requirements with the right
@@ -28,7 +28,7 @@ import { facilityImage } from '../data/images';
         advising on the correct extinguisher type for each area, then keeping them
         serviced and compliant year after year.</p>
     </div>
-    <div class="mx-auto mt-10 max-w-3xl rounded-xl border border-line bg-surface p-6 md:p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4 shadow-card">
+    <div class="mx-auto mt-8 max-w-3xl rounded-xl border border-line bg-surface p-6 md:p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4 shadow-card">
       <div>
         <h2 class="text-xl font-extrabold text-navy">Download our company profile</h2>
         <p class="mt-1 text-sm text-muted">An 11-page PDF — our story, products, services, and contact details.</p>
