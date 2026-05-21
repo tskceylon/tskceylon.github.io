@@ -15,6 +15,16 @@
 // Marshalled at build time from src/data/site.ts by build.mjs.
 #let site = json("site.json")
 
+// ── Spacing rhythm ───────────────────────────────────────────────────────────
+// Vertical spacing tokens — use these instead of ad-hoc v() calls so the
+// document keeps a consistent rhythm across all pages.
+
+#let s-xs = v(0.35em)  // tight: between eyebrow + content, micro-rows
+#let s-sm = v(0.55em)  // small: between paragraphs, after eyebrows
+#let s-md = v(0.85em)  // default: between content blocks within a page
+#let s-lg = v(1.25em)  // section: between major page sections
+#let s-xl = v(1.8em)   // hero / cover-grade gaps
+
 // ── Page chrome ──────────────────────────────────────────────────────────────
 
 #let page-header(num) = block(
@@ -42,7 +52,7 @@
 #let page-footer() = block(
   fill: navy,
   width: 100%,
-  inset: (x: 14pt, y: 10pt),
+  inset: (x: 15pt, y: 10pt),
   radius: 4pt,
 )[
   #set text(size: 8.5pt, fill: white)
@@ -81,7 +91,9 @@
 )
 
 // Pillar: small circular badge + title + body. Used in 4/5-up icon rows.
-#let pillar(glyph, title, body) = align(center)[
+// `breakable: false` keeps the badge + title + body together when the row
+// straddles a page break — otherwise Typst would split the column mid-pillar.
+#let pillar(glyph, title, body) = block(breakable: false, align(center)[
   #box(
     width: 36pt, height: 36pt,
     fill: red, radius: 50%,
@@ -91,17 +103,17 @@
       #text(size: 16pt, fill: white, weight: 900)[#glyph]
     ]
   ]
-  #v(0.4em)
+  #v(0.45em)
   #text(size: 9pt, weight: 900, fill: navy)[#upper(title)]
-  #v(0.1em)
+  #v(0.15em)
   #text(size: 8pt, fill: muted)[#body]
-]
+])
 
 // Value card with a coloured accent rail on the left.
 #let value-card(title, body, accent: navy) = block(
   fill: surface,
   stroke: (left: 3pt + accent, rest: 0.5pt + line-color),
-  inset: (x: 12pt, y: 10pt),
+  inset: (x: 13pt, y: 11pt),
   radius: 4pt,
   width: 100%,
 )[
@@ -111,16 +123,18 @@
 ]
 
 // Numbered pennant card (used on Why-Choose-Us / Competitive Advantages).
+// `breakable: false` keeps the number badge + title + body together.
 #let numbered-card(num, title, body, accent: navy) = block(
   fill: surface,
   stroke: 0.5pt + line-color,
-  inset: (x: 12pt, y: 10pt),
+  inset: (x: 13pt, y: 11pt),
   radius: 4pt,
   width: 100%,
+  breakable: false,
 )[
   #grid(
     columns: (auto, 1fr),
-    gutter: 10pt,
+    gutter: 11pt,
     align: (top, top),
     box(
       fill: accent, inset: (x: 6pt, y: 3pt), radius: 3pt,
@@ -138,7 +152,7 @@
 // Red pull-quote band (full width).
 #let quote-band(body) = block(
   fill: red, width: 100%,
-  inset: (x: 18pt, y: 14pt),
+  inset: (x: 20pt, y: 14pt),
   radius: 4pt,
 )[
   #align(center)[
@@ -151,7 +165,7 @@
 // Navy pull-quote band (alternate accent).
 #let navy-quote(body) = block(
   fill: navy, width: 100%,
-  inset: (x: 18pt, y: 14pt),
+  inset: (x: 20pt, y: 14pt),
   radius: 4pt,
 )[
   #align(center)[
@@ -183,10 +197,10 @@
   width: 100%,
   inset: 0pt,
 )[
-  #block(fill: red, inset: (x: 12pt, y: 6pt), width: 100%)[
+  #block(fill: red, inset: (x: 13pt, y: 7pt), width: 100%)[
     #text(size: 10pt, weight: 900, fill: white)[#upper(title)]
   ]
-  #block(inset: 12pt)[#body]
+  #block(inset: 13pt)[#body]
 ]
 
 // Card wrapper with navy header strip.
@@ -197,10 +211,10 @@
   width: 100%,
   inset: 0pt,
 )[
-  #block(fill: navy, inset: (x: 12pt, y: 6pt), width: 100%)[
+  #block(fill: navy, inset: (x: 13pt, y: 7pt), width: 100%)[
     #text(size: 10pt, weight: 900, fill: white)[#upper(title)]
   ]
-  #block(inset: 12pt)[#body]
+  #block(inset: 13pt)[#body]
 ]
 
 // Two-column layout helper.
@@ -224,12 +238,14 @@
 
 // Image card: photo on top with rounded corners, title + body underneath.
 // Used in the products and services grids on pages 5 and 6.
+// `breakable: false` so the image never gets separated from its caption.
 #let image-card(path, title, body, image-height: 50mm, accent: navy) = block(
   fill: surface,
   stroke: 0.5pt + line-color,
   radius: 4pt,
   width: 100%,
   inset: 0pt,
+  breakable: false,
 )[
   #box(
     width: 100%,
@@ -238,9 +254,9 @@
     clip: true,
     image(path, width: 100%, height: image-height, fit: "cover"),
   )
-  #block(inset: (x: 10pt, y: 8pt))[
+  #block(inset: (x: 11pt, y: 8pt))[
     #text(size: 9.5pt, weight: 900, fill: accent)[#upper(title)]
-    #v(0.25em)
+    #v(0.2em)
     #text(size: 8.5pt, fill: ink)[#body]
   ]
 ]
@@ -250,7 +266,7 @@
 #let conf(doc) = {
   set page(
     paper: "a4",
-    margin: (x: 18mm, top: 18mm, bottom: 22mm),
+    margin: (x: 20mm, top: 18mm, bottom: 22mm),
     fill: page-bg,
     header: context {
       let n = counter(page).get().first()
@@ -264,17 +280,17 @@
       if n == 1 { none } else { page-footer() }
     },
     header-ascent: 12pt,
-    footer-descent: 8pt,
+    footer-descent: 9pt,
   )
   set text(font: ("Inter", "Helvetica", "Arial"), size: 10.5pt, fill: ink)
-  set par(justify: false, leading: 0.6em)
-  show heading.where(level: 1): it => block(below: 0.6em)[
+  set par(justify: false, leading: 0.65em)
+  show heading.where(level: 1): it => block(below: 0.7em)[
     #text(size: 20pt, weight: 900, fill: navy)[#it.body]
   ]
-  show heading.where(level: 2): it => block(above: 0.8em, below: 0.3em)[
+  show heading.where(level: 2): it => block(above: 0.9em, below: 0.4em)[
     #text(size: 13pt, weight: 900, fill: navy)[#it.body]
   ]
-  show heading.where(level: 3): it => block(above: 0.6em, below: 0.2em)[
+  show heading.where(level: 3): it => block(above: 0.7em, below: 0.25em)[
     #text(size: 10pt, weight: 900, fill: red-dark)[#upper(it.body)]
   ]
   doc
