@@ -1,13 +1,25 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import { site } from '../data/site';
+import { facilityImage } from '../data/images';
 ---
 <BaseLayout title="About" path="about"
   description="TSK Ceylon — trusted fire extinguisher supplier and servicing partner in Sri Lanka.">
-  <section class="mx-auto max-w-6xl px-4 py-16 max-w-3xl">
+  <section class="mx-auto max-w-6xl px-4 py-16">
     <SectionHeading eyebrow="About" title={`About ${site.name}`} />
-    <div class="mt-6 space-y-4 text-muted leading-relaxed">
+    <div class="mt-8 overflow-hidden rounded-2xl border border-line shadow-card">
+      <Image
+        src={facilityImage}
+        alt="Rows of red fire extinguishers in the TSK Ceylon inspection bay"
+        widths={[800, 1200, 1600]}
+        sizes="(max-width: 1024px) 100vw, 1024px"
+        loading="lazy"
+        class="aspect-[16/9] w-full object-cover"
+      />
+    </div>
+    <div class="mx-auto mt-10 max-w-3xl space-y-4 text-muted leading-relaxed">
       <p>{site.name} supplies, installs and services certified fire extinguishers for
         businesses and homes across Sri Lanka. From a single extinguisher to fitting out
         a full facility, we help you meet fire-safety requirements with the right
@@ -15,10 +27,8 @@ import { site } from '../data/site';
       <p>We work with offices, factories, hotels, restaurants, schools and hospitals —
         advising on the correct extinguisher type for each area, then keeping them
         serviced and compliant year after year.</p>
-      <p class="text-sm">Company details, certifications and history on this page are
-        placeholders pending final content from TSK Ceylon.</p>
     </div>
-    <div class="mt-10 rounded-xl border border-line bg-surface p-6 md:p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4 shadow-card">
+    <div class="mx-auto mt-10 max-w-3xl rounded-xl border border-line bg-surface p-6 md:p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4 shadow-card">
       <div>
         <h2 class="text-xl font-extrabold text-navy">Download our company profile</h2>
         <p class="mt-1 text-sm text-muted">An 11-page PDF — our story, products, services, and contact details.</p>

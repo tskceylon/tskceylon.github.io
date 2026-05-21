@@ -4,3 +4,4 @@ node_modules/
 dist/
 .astro/
 tools/company-profile/site.json
+.env.local
