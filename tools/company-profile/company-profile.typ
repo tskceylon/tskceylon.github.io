@@ -3,58 +3,74 @@
 #show: conf
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Page 1 — Cover
+// Page 1 — Cover (cinematic full-bleed)
 // ─────────────────────────────────────────────────────────────────────────────
 
-#page(header: none, footer: none, margin: (x: 18mm, y: 24mm))[
-  #v(1fr)
-  #align(center)[
-    #text(size: 64pt, weight: 900, fill: navy)[TSK]
-    #text(size: 64pt, weight: 900, fill: red)[ CEYLON]
-    #v(0.2em)
-    #text(size: 11pt, weight: "bold", tracking: 5pt, fill: muted)[
-      #upper(site.legalName)
-    ]
-    #v(1.8em)
-    #box(width: 90pt, height: 2.5pt, fill: red)
-    #v(0.4em)
-    #text(size: 36pt, weight: 900, fill: navy)[COMPANY PROFILE]
-    #v(0.4em)
-    #box(width: 90pt, height: 2.5pt, fill: red)
-    #v(2em)
-    #text(size: 16pt, weight: "bold", fill: navy)[
-      Your Trusted Partner in Fire Safety Solutions
-    ]
-    #v(0.6em)
-    #text(size: 13pt, fill: muted, style: "italic")[
-      Safety Today, Secure Tomorrow
-    ]
-    #v(2.4em)
-    #block(
-      fill: navy, width: 78%,
-      inset: (x: 20pt, y: 16pt),
-      radius: 6pt,
-    )[
-      #set text(fill: white, size: 10.5pt)
-      #set par(leading: 0.85em)
-      #align(left)[
-        *Phone* #h(8pt) #site.phoneDisplay \
-        *Email* #h(8pt) #site.email \
-        *Address* #h(8pt) #site.address.street, #site.address.city,
-        #site.address.region #site.address.postalCode, #site.address.country
+#page(header: none, footer: none, margin: 0pt, fill: surface)[
+  // Full-bleed cinematic hero band — occupies the top ~40% of the page.
+  #image(
+    "/src/assets/images/pdf/cover-band.webp",
+    width: 100%, height: 125mm, fit: "cover",
+  )
+
+  // Content area below the image — padded back to normal page rhythm.
+  #pad(x: 18mm, top: 10mm, bottom: 14mm)[
+    #align(center)[
+      // Logo + wordmark cluster
+      #image("/public/logo.png", height: 12mm)
+      #v(0.4em)
+      #text(size: 42pt, weight: 900, fill: navy)[TSK]
+      #text(size: 42pt, weight: 900, fill: red)[ CEYLON]
+      #v(-0.3em)
+      #text(size: 9pt, weight: "bold", tracking: 4pt, fill: muted)[
+        #upper(site.legalName)
+      ]
+
+      #v(0.7em)
+      #box(width: 80pt, height: 2pt, fill: red)
+      #v(0.35em)
+      #text(size: 24pt, weight: 900, fill: navy)[COMPANY PROFILE]
+      #v(0.3em)
+      #box(width: 80pt, height: 2pt, fill: red)
+
+      #v(0.7em)
+      #text(size: 13pt, weight: "bold", fill: navy)[
+        Your Trusted Partner in Fire Safety Solutions
+      ]
+      #v(0.15em)
+      #text(size: 11pt, fill: muted, style: "italic")[
+        Safety Today, Secure Tomorrow
+      ]
+
+      #v(0.9em)
+      #block(
+        fill: navy, width: 88%,
+        inset: (x: 18pt, y: 12pt),
+        radius: 6pt,
+      )[
+        #set text(fill: white, size: 9.5pt)
+        #set par(leading: 0.85em)
+        #align(left)[
+          *Phone* #h(8pt) #site.phoneDisplay \
+          *Email* #h(8pt) #site.email \
+          *Address* #h(8pt) #site.address.street, #site.address.city,
+          #site.address.region #site.address.postalCode, #site.address.country
+        ]
       ]
     ]
   ]
-  #v(1fr)
 ]
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Page 2 — About Us
 // ─────────────────────────────────────────────────────────────────────────────
 
+#image-band("/src/assets/images/about/facility.webp", height: 52mm)
+#v(0.8em)
+
 #split-title("ABOUT", "US")
 #eyebrow("Company Overview")
-#v(0.6em)
+#v(0.4em)
 
 *#site.legalName* is a Sri Lanka–based company specializing in the supply,
 distribution, and servicing of fire safety equipment and industrial safety
@@ -72,12 +88,9 @@ business relationships. Through professional service, affordable pricing, and
 a commitment to excellence, TSK Ceylon aims to become one of the leading names
 in the fire safety industry in Sri Lanka.
 
-We continue to expand our product range and services to meet the growing
-demands of commercial, industrial, and residential sectors.
-
-#v(1.4em)
+#v(1em)
 #eyebrow("Our Four Pillars")
-#v(0.6em)
+#v(0.4em)
 
 #grid(
   columns: (1fr, 1fr, 1fr, 1fr),
@@ -210,75 +223,128 @@ improve workplace and environmental safety.
 #pagebreak()
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Page 5 — Products & Services
+// Page 5 — Our Products (image-led grid)
 // ─────────────────────────────────────────────────────────────────────────────
 
-#split-title("PRODUCTS &", "SERVICES")
+#split-title("OUR", "PRODUCTS")
 
-*#site.legalName* offers a comprehensive range of high-quality fire safety
-products and reliable services to ensure safety, protection, and peace of
-mind.
+*#site.legalName* supplies a comprehensive range of high-quality fire
+extinguishers and supporting safety equipment — certified, durable, and
+suited to every environment.
 
 #v(0.8em)
-#two-col(
-  [
-    #red-header-card("Our Products", [
-      #text(weight: 900, fill: navy, size: 10pt)[FIRE EXTINGUISHERS]
-      #v(0.3em)
-      #table(
-        columns: (1fr, 1fr),
-        stroke: 0.5pt + line-color,
-        inset: 6pt,
-        align: left,
-        text(weight: "bold")[ABC Powder], [Class A, B, C — general-purpose],
-        text(weight: "bold")[CO₂], [Class B and electrical equipment],
-        text(weight: "bold")[Foam (AFFF)], [Class A, B — flammable liquids],
-        text(weight: "bold")[Water], [Class A — ordinary combustibles],
-        text(weight: "bold")[Portable], [Compact units for small spaces],
-      )
-      #v(0.6em)
-      #text(weight: 900, fill: navy, size: 10pt)[SAFETY EQUIPMENT]
-      #v(0.3em)
-      • Safety signs & warning boards \
-      • Fire safety stickers \
-      • Emergency safety accessories \
-      • Industrial safety products
-      #v(0.6em)
-      #text(weight: 900, fill: navy, size: 10pt)[PRODUCT HIGHLIGHTS]
-      #v(0.3em)
-      #checklist((
-        [High-quality and certified products],
-        [Suitable for all types of environments],
-        [Durable, reliable, and safety-tested],
-        [Available in different sizes and specifications],
-        [Designed to meet modern safety requirements],
-      ))
-    ])
-  ],
-  [
-    #navy-header-card("Our Services", [
-      #value-card("1. Fire Extinguisher Refilling",
-        [Refilling services with proper inspection and maintenance to safety standards.])
-      #v(5pt)
-      #value-card("2. Inspection & Maintenance",
-        [Regular checks to keep equipment in proper working condition and ready for emergency use.])
-      #v(5pt)
-      #value-card("3. Consultation Services",
-        [Guidance for businesses on selecting suitable fire protection equipment.])
-      #v(5pt)
-      #value-card("4. Customer Support",
-        [Responsive customer service, technical support, and after-sales assistance.])
-      #v(5pt)
-      #value-card("5. Fire Design",
-        [Professional fire protection system design tailored to building type and safety requirements.])
-      #v(5pt)
-      #value-card("6. Fire Training",
-        [Fire safety training programs to educate staff for emergencies and safe evacuation.])
-    ])
+#grid(
+  columns: (1fr, 1fr),
+  gutter: 10pt,
+  row-gutter: 10pt,
+  image-card(
+    "/src/assets/images/products/dcp.webp",
+    "Dry Powder (DCP / ABC)",
+    [Class A, B, C — the most versatile choice for offices, vehicles, and general-purpose use. Available 1–9 kg.],
+    accent: navy,
+  ),
+  image-card(
+    "/src/assets/images/products/co2.webp",
+    "Carbon Dioxide (CO₂)",
+    [Class B and electrical fires — leaves no residue. Ideal for server rooms, labs, and electronics. 2–5 kg.],
+    accent: red,
+  ),
+  image-card(
+    "/src/assets/images/products/foam.webp",
+    "Foam (AFFF)",
+    [Class A and B — smothers flammable-liquid fires and cools solids. For warehouses and workshops. 6 L · 9 L.],
+    accent: navy,
+  ),
+  image-card(
+    "/src/assets/images/products/water.webp",
+    "Water",
+    [Class A — economical and effective on wood, paper, and textiles. Schools, offices, storage. 6 L · 9 L.],
+    accent: red,
+  ),
+  image-card(
+    "/src/assets/images/products/wet-chemical.webp",
+    "Wet Chemical",
+    [Class F — purpose-built for deep-fat fryer and cooking-oil fires in commercial kitchens. 3 L · 6 L.],
+    accent: navy,
+  ),
+  block(
+    fill: surface,
+    stroke: 0.5pt + line-color,
+    radius: 4pt,
+    inset: 12pt,
+    width: 100%,
+  )[
+    #text(size: 9.5pt, weight: 900, fill: red-dark)[#upper("Safety Equipment & Accessories")]
+    #v(0.3em)
+    #text(size: 8.5pt, fill: ink)[
+      Beyond extinguishers, we supply the full safety ecosystem:
+    ]
+    #v(0.3em)
+    • Safety signs & warning boards \
+    • Fire safety stickers \
+    • Emergency safety accessories \
+    • Industrial safety products
+    #v(0.4em)
+    #text(size: 8pt, fill: muted, style: "italic")[
+      All products certified, durability-tested, and matched to your environment.
+    ]
   ],
 )
 
+#pagebreak()
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Page 6 — Our Services (image-led grid)
+// ─────────────────────────────────────────────────────────────────────────────
+
+#split-title("OUR", "SERVICES")
+
+Beyond supply, *#site.legalName* delivers the full lifecycle of fire safety
+services — installation, inspection, refilling, training, and design — to
+keep your equipment reliable year after year.
+
 #v(0.8em)
+#grid(
+  columns: (1fr, 1fr),
+  gutter: 10pt,
+  row-gutter: 10pt,
+  image-card(
+    "/src/assets/images/services/installation.webp",
+    "Installation",
+    [On-site installation of fire extinguishers in chrome wall brackets, with signage and placement guidance.],
+    accent: red,
+  ),
+  image-card(
+    "/src/assets/images/services/refilling.webp",
+    "Refilling",
+    [Professional extinguisher refilling with full inspection and pressure testing to safety standards.],
+    accent: navy,
+  ),
+  image-card(
+    "/src/assets/images/services/maintenance.webp",
+    "Inspection & Maintenance",
+    [Scheduled checks, service tags, and gauge inspections to keep your equipment compliant and ready.],
+    accent: red,
+  ),
+  image-card(
+    "/src/assets/images/services/training.webp",
+    "Fire Training",
+    [Practical training programs that teach staff safe evacuation and correct extinguisher technique.],
+    accent: navy,
+  ),
+)
+
+#v(0.6em)
+#two-col(
+  value-card("Consultation",
+    [Expert guidance on selecting the right fire protection equipment for your building, industry, and risk profile.],
+    accent: navy),
+  value-card("Fire System Design",
+    [Professional fire protection system design tailored to building type, occupancy, and safety requirements.],
+    accent: red),
+)
+
+#v(0.6em)
 #navy-quote([
   Quality Products. Professional Services. Complete Safety Solutions.
 ])
@@ -286,20 +352,22 @@ mind.
 #pagebreak()
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Page 6 — Sectors We Serve
+// Page 7 — Sectors We Serve
 // ─────────────────────────────────────────────────────────────────────────────
+
+#image-band("/src/assets/images/pdf/sectors-banner.webp", height: 48mm)
+#v(0.8em)
 
 #split-title("SECTORS WE", "SERVE")
 
-*#site.legalName* provides reliable fire safety products and professional
-services to a wide range of sectors. Our solutions are tailored to meet the
-unique safety requirements of each industry we serve.
+*#site.legalName* serves a wide range of sectors with fire safety solutions
+tailored to each industry's unique requirements.
 
-#v(0.8em)
+#v(0.6em)
 #grid(
   columns: (1fr, 1fr),
   gutter: 10pt,
-  row-gutter: 10pt,
+  row-gutter: 8pt,
   value-card("Commercial Buildings", accent: navy,
     [Office buildings, business centres, and multi-storey complexes — fire
      safety equipment for safe working environments.]),
@@ -360,7 +428,7 @@ unique safety requirements of each industry we serve.
 #pagebreak()
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Page 7 — Competitive Advantages
+// Page 8 — Competitive Advantages
 // ─────────────────────────────────────────────────────────────────────────────
 
 #split-title("COMPETITIVE", "ADVANTAGES")
@@ -420,7 +488,7 @@ through our products, services, and customer relationships.
 #pagebreak()
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Page 8 — Commitment & Future Development
+// Page 9 — Commitment & Future Development
 // ─────────────────────────────────────────────────────────────────────────────
 
 #split-title("COMMITMENT &", "FUTURE DEVELOPMENT")
@@ -475,14 +543,17 @@ in our people, products, and services to build a safer tomorrow for Sri Lanka.
 #pagebreak()
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Page 9 — Quality & Compliance
+// Page 10 — Quality & Compliance
 // ─────────────────────────────────────────────────────────────────────────────
+
+#image-band("/src/assets/images/pdf/inspection-detail.webp", height: 32mm)
+#v(0.5em)
 
 #split-title("QUALITY &", "COMPLIANCE")
 
-At *#site.legalName*, we believe that quality and reliability are essential in
-the fire safety industry. Every product and service is carefully selected and
-delivered with a strong focus on safety, durability, and customer confidence.
+At *#site.legalName*, quality and reliability are essential. Every product
+and service is delivered with a strong focus on safety, durability, and
+customer confidence.
 
 #v(0.8em)
 #two-col(
@@ -495,20 +566,17 @@ delivered with a strong focus on safety, durability, and customer confidence.
     ])
     #v(0.6em)
     #red-header-card("Our Quality Commitments", [
-      #value-card("Supplying Quality-Tested Products", accent: navy,
-        [Equipment selected from reliable manufacturers and quality-tested.])
-      #v(4pt)
-      #value-card("Maintaining Professional Standards", accent: navy,
+      #value-card("Quality-Tested Products", accent: navy,
+        [Equipment selected from reliable manufacturers, quality-tested.])
+      #v(3pt)
+      #value-card("Professional Standards", accent: navy,
         [Trained team delivering efficient, customer-focused services.])
-      #v(4pt)
-      #value-card("Ensuring Customer Satisfaction", accent: navy,
-        [Listening, understanding, and delivering on customer expectations.])
-      #v(4pt)
-      #value-card("Dependable After-Sales Support", accent: navy,
-        [Reliable support, maintenance guidance, and assistance when needed.])
-      #v(4pt)
-      #value-card("Proper Fire Safety Awareness", accent: navy,
-        [Educating users on proper equipment usage and regular maintenance.])
+      #v(3pt)
+      #value-card("Customer Satisfaction", accent: navy,
+        [Listening, understanding, and delivering on expectations.])
+      #v(3pt)
+      #value-card("Dependable Support", accent: navy,
+        [Reliable after-sales support, maintenance guidance, and assistance.])
     ])
   ],
   [
@@ -544,7 +612,7 @@ delivered with a strong focus on safety, durability, and customer confidence.
 #pagebreak()
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Page 10 — Why Choose TSK Ceylon
+// Page 11 — Why Choose TSK Ceylon
 // ─────────────────────────────────────────────────────────────────────────────
 
 #split-title("WHY CHOOSE", "TSK CEYLON?")
@@ -626,17 +694,18 @@ approach.
 #pagebreak()
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Page 11 — Contact Information
+// Page 12 — Contact Information
 // ─────────────────────────────────────────────────────────────────────────────
+
+#image-band("/src/assets/images/about/facility.webp", height: 42mm)
+#v(0.7em)
 
 #split-title("CONTACT", "INFORMATION")
 
 We are always ready to serve you with reliable products, professional
-services, and expert support.
+services, and expert support. *Get in touch with TSK Ceylon today!*
 
-*Get in touch with TSK Ceylon today!*
-
-#v(0.8em)
+#v(0.6em)
 #two-col(
   red-header-card("Get in Touch", [
     #grid(

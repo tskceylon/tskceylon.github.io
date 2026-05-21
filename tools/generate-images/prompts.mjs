@@ -182,6 +182,60 @@ export const prompts = [
       'No people, no text, no signage, no logos, no brand names. ' +
       'Wide horizontal composition with breathing room on both sides.',
   },
+
+  // ---------- PDF-specific banners (16:9 photographic) ----------
+  // These feed the company-profile.pdf cover and section bands.
+  {
+    category: 'pdf',
+    slug: 'cover-band',
+    aspectRatio: '16:9',
+    prompt:
+      'Cinematic editorial photograph for a corporate brochure cover. A neatly arranged row of three or four ' +
+      'glossy red fire extinguishers stands on a polished dark concrete floor against a deep navy-grey wall, ' +
+      'shot from a slight low angle for a confident, premium feel. Dramatic side lighting from the upper-left ' +
+      'rakes across the cylinders, producing soft specular highlights on the glossy red paintwork and pulling ' +
+      'rich tonal gradation out of the dark background; the right side falls naturally into deep navy shadow ' +
+      'for negative space. The atmosphere is moody, editorial, and authoritative — closer to a high-end ' +
+      'product magazine spread than a catalogue page. Sharp focus throughout, medium-format quality, ' +
+      'shallow ambient haze for depth. ' +
+      'No people, no text, no signage, no logos, no brand names anywhere in the frame. ' +
+      'Wide horizontal composition; cylinders sit slightly left of centre with generous breathing room ' +
+      'on the right for cover typography to land on top of the image without competition.',
+  },
+  {
+    category: 'pdf',
+    slug: 'inspection-detail',
+    aspectRatio: '16:9',
+    prompt:
+      'Professional commercial macro photograph for a quality-and-compliance section header. Tight close-up ' +
+      'of a clean white inspection service tag hanging on a thin string loop from the chrome squeeze-handle ' +
+      'of a glossy red fire extinguisher cylinder; the tag itself is blank (no text, no markings, no codes). ' +
+      'Behind the tag, slightly out of focus, the round pressure gauge of the extinguisher is visible — ' +
+      'showing only a graphical red-and-green dial with a needle in the green zone, no digits and no text on ' +
+      'the gauge face. Natural daylight from the upper-left, sharp focus on the tag with a shallow ' +
+      'background falling softly out of focus. Warm, ordered, professional atmosphere — the visual ' +
+      'shorthand for routine certified inspection. ' +
+      'No people, no other text, no signage, no logos, no brand names. ' +
+      'Wide horizontal composition with the tag and gauge sitting in the right two-thirds of the frame ' +
+      'and the left third left as soft uncluttered red-cylinder surface for typography to overlay.',
+  },
+  {
+    category: 'pdf',
+    slug: 'sectors-banner',
+    aspectRatio: '16:9',
+    prompt:
+      'Editorial wide-shot photograph for a "sectors we serve" section header in a corporate brochure. ' +
+      'Interior of a modern commercial corridor or lobby corner: clean light-grey wall on the right with a ' +
+      'wall-mounted red fire extinguisher in a chrome bracket as the focal point, a small green-and-white ' +
+      'EXIT pictogram arrow above it (graphical only — no readable text), a glass partition reflecting the ' +
+      'space on the left, polished tile floor below, and a soft daylight wash from a window out of frame. ' +
+      'A subtle hint of industry diversity in the background — a softly out-of-focus suggestion of office ' +
+      'furniture and an indoor planter — without ever crowding the composition. Calm, professional, ' +
+      'safety-conscious atmosphere. Sharp focus on the extinguisher, gentle bokeh fall-off elsewhere. ' +
+      'No people, no readable text, no logos, no brand names. ' +
+      'Wide horizontal composition with strong negative space in the upper-left third for a heading to ' +
+      'be overlaid in print.',
+  },
 ];
 
 export const aspectToSize = {

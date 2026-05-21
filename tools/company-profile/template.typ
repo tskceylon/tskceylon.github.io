@@ -211,6 +211,40 @@
   left, right,
 )
 
+// ── Image helpers ────────────────────────────────────────────────────────────
+
+// Full-width rounded photographic band used at the top of section pages.
+#let image-band(path, height: 60mm, radius: 4pt) = box(
+  width: 100%,
+  height: height,
+  radius: radius,
+  clip: true,
+  image(path, width: 100%, height: height, fit: "cover"),
+)
+
+// Image card: photo on top with rounded corners, title + body underneath.
+// Used in the products and services grids on pages 5 and 6.
+#let image-card(path, title, body, image-height: 50mm, accent: navy) = block(
+  fill: surface,
+  stroke: 0.5pt + line-color,
+  radius: 4pt,
+  width: 100%,
+  inset: 0pt,
+)[
+  #box(
+    width: 100%,
+    height: image-height,
+    radius: (top-left: 4pt, top-right: 4pt),
+    clip: true,
+    image(path, width: 100%, height: image-height, fit: "cover"),
+  )
+  #block(inset: (x: 10pt, y: 8pt))[
+    #text(size: 9.5pt, weight: 900, fill: accent)[#upper(title)]
+    #v(0.25em)
+    #text(size: 8.5pt, fill: ink)[#body]
+  ]
+]
+
 // ── Document setup ───────────────────────────────────────────────────────────
 
 #let conf(doc) = {
