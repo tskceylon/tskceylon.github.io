@@ -7,7 +7,7 @@ const waHref = `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(s
 ---
 <BaseLayout title="Contact" path="contact" showCTA={false}
   description="Contact TSK Ceylon for fire extinguisher quotes, refilling and servicing in Sri Lanka.">
-  <section class="container-wrap py-section-sm md:py-section">
+  <section class="container-wrap py-section-sm md:py-section pb-24 md:pb-section">
     <SectionHeading eyebrow="Contact" title="Request a quote"
       intro="Send your requirement and we’ll respond quickly. Prefer to talk? Call or WhatsApp us." />
     <div class="mt-8 grid gap-10 md:grid-cols-2">
@@ -27,7 +27,7 @@ const waHref = `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(s
           src={site.mapEmbedUrl}
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
-          class="w-full h-64 rounded-lg border border-line mt-4"
+          class="block w-full max-w-full h-64 rounded-lg border border-line mt-4"
         ></iframe>
       </div>
     </div>

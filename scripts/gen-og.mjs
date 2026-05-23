@@ -22,7 +22,7 @@ const line1 = cut > 0 ? t.slice(0, cut) : t;
 const line2 = cut > 0 ? t.slice(cut + 1) : '';
 
 // Resize the logo and centre it horizontally on the card.
-const logo = await sharp('public/logo.png').resize({ height: 320 }).toBuffer();
+const logo = await sharp('src/assets/images/brand/logo.png').resize({ height: 320 }).toBuffer();
 const { width: logoW } = await sharp(logo).metadata();
 const logoX = Math.round((W - logoW) / 2);
 const logoY = 110;

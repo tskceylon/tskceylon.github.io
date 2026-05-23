@@ -17,7 +17,7 @@
   #pad(x: 20mm, top: 12mm, bottom: 16mm)[
     #align(center)[
       // Logo + wordmark cluster
-      #image("/public/logo.png", height: 12mm)
+      #image("/src/assets/images/brand/logo.png", height: 12mm)
       #v(0.4em)
       #text(size: 42pt, weight: 900, fill: navy)[TSK]
       #text(size: 42pt, weight: 900, fill: red)[ CEYLON]

@@ -1,12 +1,16 @@
 ---
+import { Image } from 'astro:assets';
 import { site } from '../data/site';
+import logo from '../assets/images/brand/logo.webp';
 const path = new URL(Astro.request.url).pathname.replace(/\/$/, '') || '/';
+const waHref = `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(site.whatsappMessage)}`;
 ---
 <header class="border-b border-line bg-surface sticky top-0 z-40">
-  <div class="container-wrap h-16 flex items-center justify-between gap-4">
+  <div class="container-wrap h-16 flex items-center justify-between gap-3 sm:gap-4">
     <a href="/" class="flex items-center" aria-label={`${site.name} — home`}>
-      <img src="/logo.png" alt={site.name} width="49" height="48" class="h-12 w-auto" />
+      <Image src={logo} alt={site.name} widths={[48, 96, 144]} sizes="48px" loading="eager" fetchpriority="high" class="h-12 w-auto" />
     </a>
+
     <nav aria-label="Primary" class="hidden md:flex items-center gap-6 text-sm font-semibold">
       {site.nav.map((item) => (
         <a
@@ -19,12 +23,157 @@ const path = new URL(Astro.request.url).pathname.replace(/\/$/, '') || '/';
         >{item.label}</a>
       ))}
     </nav>
-    <a
-      href={`tel:${site.phoneHref}`}
-      class="inline-flex items-center gap-2 rounded-md bg-action px-4 py-2 text-sm font-bold text-white hover:bg-action-dark transition-colors"
-    >
-      <span aria-hidden="true">📞</span><span class="hidden sm:inline">{site.phoneDisplay}</span>
-      <span class="sm:hidden">Call</span>
-    </a>
+
+    <div class="flex items-center gap-2">
+      <a
+        href={`tel:${site.phoneHref}`}
+        aria-label={`Call ${site.phoneDisplay}`}
+        class="inline-flex items-center gap-2 rounded-md bg-action px-3 sm:px-4 min-h-[44px] text-sm font-bold text-white hover:bg-action-dark transition-colors"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-4 w-4" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
+        </svg>
+        <span class="hidden sm:inline">{site.phoneDisplay}</span>
+        <span class="sm:hidden">Call</span>
+      </a>
+
+      <button
+        id="nav-toggle"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="mobile-nav-panel"
+        class="md:hidden inline-flex items-center justify-center h-11 w-11 rounded-md border border-line text-ink hover:border-action transition-colors"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-5 w-5" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+      </button>
+    </div>
   </div>
+
+  <div
+    id="mobile-nav-backdrop"
+    class="md:hidden fixed inset-0 z-40 bg-navy/40 opacity-0 invisible transition-opacity duration-200"
+    aria-hidden="true"
+  ></div>
+  <aside
+    id="mobile-nav-panel"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Site navigation"
+    class="md:hidden fixed top-0 right-0 z-50 h-dvh w-[85%] max-w-sm bg-surface translate-x-full transition-transform duration-200 shadow-2xl flex flex-col"
+  >
+    <div class="flex items-center justify-between border-b border-line px-4 h-16 shrink-0">
+      <span class="text-sm font-semibold tracking-[0.2em] text-action-dark uppercase">Menu</span>
+      <button
+        id="nav-close"
+        type="button"
+        aria-label="Close menu"
+        class="inline-flex items-center justify-center h-11 w-11 rounded-md text-ink hover:bg-surface-alt transition-colors"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-5 w-5" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+    <nav aria-label="Mobile primary" class="flex-1 overflow-y-auto py-2">
+      <ul class="flex flex-col">
+        {site.nav.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              aria-current={path === item.href ? 'page' : undefined}
+              data-nav-link
+              class:list={[
+                'block px-5 py-3 text-base font-semibold border-l-4',
+                path === item.href
+                  ? 'text-action-dark border-action bg-surface-alt'
+                  : 'text-ink border-transparent hover:bg-surface-alt',
+              ]}
+            >{item.label}</a>
+          </li>
+        ))}
+        <li>
+          <a
+            href="/company-profile.pdf"
+            target="_blank"
+            rel="noopener"
+            data-nav-link
+            class="block px-5 py-3 text-base font-semibold text-ink border-l-4 border-transparent hover:bg-surface-alt"
+          >Company Profile</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="border-t border-line p-4 flex flex-col gap-2 shrink-0">
+      <a
+        href={`tel:${site.phoneHref}`}
+        data-nav-link
+        class="inline-flex items-center justify-center gap-2 rounded-md bg-action px-4 py-3 text-sm font-bold text-white hover:bg-action-dark transition-colors"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-4 w-4" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
+        </svg>
+        {site.phoneDisplay}
+      </a>
+      <a
+        href={waHref}
+        target="_blank"
+        rel="noopener"
+        data-nav-link
+        class="inline-flex items-center justify-center gap-2 rounded-md border border-line bg-white px-4 py-3 text-sm font-semibold text-ink hover:border-action transition-colors"
+      >WhatsApp Us</a>
+    </div>
+  </aside>
 </header>
+
+<script>
+  let isOpen = false;
+  let lastFocused: HTMLElement | null = null;
+
+  function setOpen(open: boolean) {
+    const toggle = document.getElementById('nav-toggle');
+    const panel = document.getElementById('mobile-nav-panel');
+    const backdrop = document.getElementById('mobile-nav-backdrop');
+    if (!toggle || !panel || !backdrop) return;
+    isOpen = open;
+    toggle.setAttribute('aria-expanded', String(open));
+    if (open) {
+      lastFocused = document.activeElement as HTMLElement | null;
+      panel.classList.remove('translate-x-full');
+      panel.classList.add('translate-x-0');
+      backdrop.classList.remove('invisible', 'opacity-0');
+      backdrop.classList.add('opacity-100');
+      document.body.classList.add('overflow-hidden');
+      const first = panel.querySelector('a, button') as HTMLElement | null;
+      first?.focus();
+    } else {
+      panel.classList.remove('translate-x-0');
+      panel.classList.add('translate-x-full');
+      backdrop.classList.remove('opacity-100');
+      backdrop.classList.add('opacity-0');
+      window.setTimeout(() => backdrop.classList.add('invisible'), 200);
+      document.body.classList.remove('overflow-hidden');
+      lastFocused?.focus();
+    }
+  }
+
+  function attach() {
+    const toggle = document.getElementById('nav-toggle');
+    const close = document.getElementById('nav-close');
+    const backdrop = document.getElementById('mobile-nav-backdrop');
+    const panel = document.getElementById('mobile-nav-panel');
+    if (!toggle || !close || !backdrop || !panel) return;
+    toggle.addEventListener('click', () => setOpen(true));
+    close.addEventListener('click', () => setOpen(false));
+    backdrop.addEventListener('click', () => setOpen(false));
+    panel.querySelectorAll<HTMLAnchorElement>('[data-nav-link]').forEach((a) => {
+      a.addEventListener('click', () => setOpen(false));
+    });
+  }
+
+  document.addEventListener('astro:page-load', attach);
+  document.addEventListener('keydown', (e) => {
+    if (isOpen && e.key === 'Escape') setOpen(false);
+  });
+</script>

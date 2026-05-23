@@ -6,23 +6,23 @@ const waHref = `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(s
 ---
 <section class="border-b border-line">
   <div class="container-wrap py-hero-sm md:py-hero">
-    <div class="grid items-center gap-10 md:grid-cols-[1.05fr_1fr] md:gap-14">
+    <div class="grid items-center gap-10 lg:grid-cols-[1.05fr_1fr] lg:gap-14">
       <div>
         <p class="flex items-center gap-3 text-sm font-bold tracking-[0.2em] text-action-dark uppercase">
           <span class="h-[2px] w-8 bg-action-dark" aria-hidden="true"></span>
           Certified Fire Safety · Sri Lanka
         </p>
         <h1 class="mt-5 text-4xl md:text-5xl font-extrabold leading-tight">
-          Fire extinguishers & servicing you can trust
+          Fire extinguishers &amp; servicing you can trust
         </h1>
         <p class="mt-5 text-lg text-muted">
           TSK Ceylon supplies, installs and services certified extinguishers for offices,
           factories, hotels and homes — keeping your premises safe and compliant.
         </p>
-        <div class="mt-8 flex flex-wrap gap-3">
-          <a href="/contact" class="rounded-md bg-action px-6 py-3 font-bold text-white hover:bg-action-dark transition-colors">Get a Quote</a>
-          <a href={waHref} target="_blank" rel="noopener" class="rounded-md border border-line bg-white px-6 py-3 font-semibold text-ink hover:border-action transition-colors">WhatsApp Us</a>
-          <a href="/company-profile.pdf" target="_blank" rel="noopener" class="rounded-md border border-line bg-white px-6 py-3 font-semibold text-ink hover:border-action transition-colors">Company Profile</a>
+        <div class="mt-8 grid grid-cols-2 sm:flex sm:flex-wrap gap-3">
+          <a href="/contact" class="inline-flex items-center justify-center rounded-md bg-action px-6 py-3 min-h-[44px] font-bold text-white hover:bg-action-dark transition-colors">Get a Quote</a>
+          <a href={waHref} target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-md border border-line bg-white px-6 py-3 min-h-[44px] font-semibold text-ink hover:border-action transition-colors">WhatsApp Us</a>
+          <a href="/company-profile.pdf" target="_blank" rel="noopener" class="col-span-2 sm:col-auto inline-flex items-center justify-center rounded-md border border-line bg-white px-6 py-3 min-h-[44px] font-semibold text-ink hover:border-action transition-colors">Company Profile</a>
         </div>
       </div>
       <div class="relative">
