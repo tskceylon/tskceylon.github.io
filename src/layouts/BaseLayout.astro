@@ -3,14 +3,25 @@ import '@fontsource-variable/inter';
 import '../styles/global.css';
 import { ClientRouter } from 'astro:transitions';
 import Seo from '../components/Seo.astro';
+import type { PageType } from '../data/types';
 import Header from '../components/Header.astro';
 import CTABand from '../components/CTABand.astro';
 import Footer from '../components/Footer.astro';
 import WhatsAppFab from '../components/WhatsAppFab.astro';
+import { site } from '../data/site';
 
-interface Props { title: string; description?: string; path?: string; showCTA?: boolean; }
-const { title, description, path, showCTA = true } = Astro.props;
+interface Props {
+  title: string;
+  description?: string;
+  path?: string;
+  pageType?: PageType;
+  showCTA?: boolean;
+  noindex?: boolean;
+}
+const { title, description, path, pageType = 'other', showCTA = true, noindex = false } = Astro.props;
 const isContact = path === 'contact';
+const gtagId = site.gtagId;
+const enableGtag = !!gtagId && import.meta.env.PROD;
 ---
 <!doctype html>
 <html lang="en">
@@ -18,11 +29,21 @@ const isContact = path === 'contact';
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#F4F7FA" />
+    {noindex && <meta name="robots" content="noindex,nofollow" />}
+    {site.googleSiteVerification && (
+      <meta name="google-site-verification" content={site.googleSiteVerification} />
+    )}
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="preconnect" href="https://api.web3forms.com" crossorigin />
     {isContact && <link rel="preconnect" href="https://www.google.com" />}
-    <Seo title={title} description={description} path={path} />
+    <Seo title={title} description={description} path={path} pageType={pageType} />
+    {enableGtag && (
+      <>
+        <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${gtagId}`}></script>
+        <script is:inline set:html={`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${gtagId}');`} />
+      </>
+    )}
     <ClientRouter />
   </head>
   <body>

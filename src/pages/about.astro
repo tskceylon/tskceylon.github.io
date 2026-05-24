@@ -5,10 +5,10 @@ import SectionHeading from '../components/SectionHeading.astro';
 import { site } from '../data/site';
 import { facilityImage } from '../data/images';
 ---
-<BaseLayout title="About" path="about"
-  description="TSK Ceylon — trusted fire extinguisher supplier and servicing partner in Sri Lanka.">
+<BaseLayout title="About TSK Ceylon" path="about" pageType="about"
+  description="Meet TSK Ceylon — fire extinguisher supplier and servicing partner across Sri Lanka, helping offices, factories, hotels and homes stay safe and compliant.">
   <section class="container-wrap py-section-sm md:py-section">
-    <SectionHeading eyebrow="About" title={`About ${site.name}`} />
+    <SectionHeading as="h1" eyebrow="About" title={`About ${site.name}`} />
     <div class="mt-8 overflow-hidden rounded-2xl border border-line shadow-card">
       <Image
         src={facilityImage}

@@ -4,10 +4,10 @@ import SectionHeading from '../components/SectionHeading.astro';
 import ProductCard from '../components/ProductCard.astro';
 import { products } from '../data/products';
 ---
-<BaseLayout title="Products" path="products"
+<BaseLayout title="Fire Extinguishers in Sri Lanka" path="products" pageType="products"
   description="Dry powder, CO₂, foam, water and wet chemical fire extinguishers supplied across Sri Lanka by TSK Ceylon.">
   <section class="container-wrap py-section-sm md:py-section">
-    <SectionHeading eyebrow="Products" title="Our fire extinguisher range"
+    <SectionHeading as="h1" eyebrow="Products" title="Our fire extinguisher range"
       intro="Not sure which you need? Send us your premises details and we’ll recommend the right mix." />
     <div class="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
       {products.map((product) => <ProductCard product={product} />)}

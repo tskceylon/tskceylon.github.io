@@ -1,6 +1,6 @@
 ---
-interface Props { eyebrow?: string; title: string; intro?: string; }
-const { eyebrow, title, intro } = Astro.props;
+interface Props { eyebrow?: string; title: string; intro?: string; as?: 'h1' | 'h2'; }
+const { eyebrow, title, intro, as: Tag = 'h2' }: Props = Astro.props;
 ---
 <div class="max-w-2xl">
   {eyebrow && (
@@ -9,6 +9,6 @@ const { eyebrow, title, intro } = Astro.props;
       {eyebrow}
     </p>
   )}
-  <h2 class="mt-3 text-3xl font-extrabold">{title}</h2>
+  <Tag class="mt-3 text-3xl font-extrabold">{title}</Tag>
   {intro && <p class="mt-4 text-muted">{intro}</p>}
 </div>

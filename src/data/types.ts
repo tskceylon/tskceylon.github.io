@@ -1,3 +1,5 @@
+export type PageType = 'home' | 'contact' | 'products' | 'services' | 'about' | 'other';
+
 export interface NavItem { label: string; href: string; }
 export interface BusinessHours { days: string; hours: string; }
 export interface OpeningHoursSpec { days: string[]; opens: string; closes: string; }
@@ -20,6 +22,8 @@ export interface SiteConfig {
   openingHours: OpeningHoursSpec[];
   nav: NavItem[];
   web3formsAccessKey: string;
+  googleSiteVerification?: string;
+  gtagId?: string;
 }
 
 export interface Product {

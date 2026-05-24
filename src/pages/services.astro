@@ -4,10 +4,10 @@ import SectionHeading from '../components/SectionHeading.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import { services } from '../data/services';
 ---
-<BaseLayout title="Services" path="services"
+<BaseLayout title="Fire Extinguisher Servicing & Refilling" path="services" pageType="services"
   description="Fire extinguisher refilling, annual maintenance & inspection, installation and fire safety training in Sri Lanka.">
   <section class="container-wrap py-section-sm md:py-section">
-    <SectionHeading eyebrow="Services" title="Keeping you safe & compliant"
+    <SectionHeading as="h1" eyebrow="Services" title="Keeping you safe & compliant"
       intro="Extinguishers need servicing to stay effective and to keep your premises audit-ready." />
     <div class="mt-8 grid gap-6 md:grid-cols-2">
       {services.map((service) => <ServiceCard service={service} />)}

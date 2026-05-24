@@ -3,6 +3,13 @@ import { existsSync } from 'node:fs';
 import { site } from '../src/data/site.ts';
 
 const pages = ['index', 'products', 'services', 'about', 'contact', '404'];
+const expectedSchema = {
+  index: ['LocalBusiness'],
+  products: ['BreadcrumbList', 'ItemList', 'Product'],
+  services: ['BreadcrumbList', 'ItemList', 'Service'],
+  about: ['Organization', 'BreadcrumbList'],
+  contact: ['LocalBusiness', 'BreadcrumbList'],
+};
 const errors = [];
 
 for (const p of pages) {
@@ -13,8 +20,16 @@ for (const p of pages) {
   const html = await readFile(file, 'utf8');
   if (!html.includes(site.name)) errors.push(`${p}: site name missing`);
   if (p !== '404' && !html.includes(site.phoneDisplay)) errors.push(`${p}: phone (SSOT) missing`);
-  if (p !== '404' && !html.includes('"@type":"LocalBusiness"'))
-    errors.push(`${p}: LocalBusiness JSON-LD missing`);
+  for (const type of expectedSchema[p] ?? []) {
+    if (!html.includes(`"@type":"${type}"`))
+      errors.push(`${p}: expected JSON-LD @type "${type}" missing`);
+  }
+  if (p === '404' && !html.includes('name="robots" content="noindex'))
+    errors.push('404: noindex robots meta missing');
+  if (p !== '404' && !/<h1[\s>]/.test(html))
+    errors.push(`${p}: <h1> missing`);
+  if (p !== '404' && !html.includes('og:locale'))
+    errors.push(`${p}: og:locale missing`);
 }
 
 const index = await readFile('dist/index.html', 'utf8');

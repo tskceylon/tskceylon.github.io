@@ -11,7 +11,7 @@
     "pdf": "node tools/company-profile/build.mjs",
     "images": "node tools/generate-images/generate.mjs",
     "smoke": "node scripts/smoke.mjs",
-    "linkcheck": "linkinator dist --skip \"^(tel:|mailto:|https://wa\\.me|https://www\\.google\\.com/maps|https://tskceylon\\.github\\.io)\"",
+    "linkcheck": "linkinator dist --skip \"^(tel:|mailto:|https://wa\\.me|https://www\\.google\\.com/maps|https://tsk-ceylon\\.github\\.io)\"",
     "verify": "npm run check && npm run build && npm run smoke && npm run linkcheck"
   },
   "dependencies": {

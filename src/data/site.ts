@@ -6,7 +6,7 @@ export const site: SiteConfig = {
   tagline: 'Certified Fire Extinguishers & Servicing in Sri Lanka',
   description:
     'TSK Ceylon supplies, installs and services certified fire extinguishers for offices, factories, hotels and homes across Sri Lanka. Request a quote today.',
-  url: 'https://tskceylon.github.io',
+  url: 'https://tsk-ceylon.github.io',
   phoneDisplay: '077 933 2250',
   phoneHref: '+94779332250',
   whatsappNumber: '94779332250',
@@ -42,4 +42,8 @@ export const site: SiteConfig = {
   // PLACEHOLDER — free key from https://web3forms.com (no account; arrives by email).
   // Web3Forms access keys are designed to be public/client-side safe.
   web3formsAccessKey: 'REPLACE_WITH_WEB3FORMS_ACCESS_KEY',
+  // Paste the `content` value of the Google Search Console HTML-tag verification.
+  googleSiteVerification: '',
+  // GA4 Measurement ID (e.g. 'G-XXXXXXXXXX'). Loads only in production builds.
+  gtagId: '',
 };
