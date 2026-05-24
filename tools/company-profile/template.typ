@@ -15,6 +15,13 @@
 // Marshalled at build time from src/data/site.ts by build.mjs.
 #let site = json("site.json")
 
+// Address composer that hides an empty postalCode (otherwise the join
+// produces "Western Province , Sri Lanka" with a stray space).
+#let formatted-address = {
+  let pc = if site.address.postalCode != "" { " " + site.address.postalCode } else { "" }
+  [#site.address.street, #site.address.city, #site.address.region#pc, #site.address.country]
+}
+
 // ── Spacing rhythm ───────────────────────────────────────────────────────────
 // Vertical spacing tokens — use these instead of ad-hoc v() calls so the
 // document keeps a consistent rhythm across all pages.
@@ -70,7 +77,7 @@
   )
   #v(2pt)
   #text(size: 7.5pt, fill: rgb("#CBD5E1"))[
-    #site.address.street, #site.address.city, #site.address.region #site.address.postalCode, #site.address.country
+    #formatted-address
   ]
 ]
 

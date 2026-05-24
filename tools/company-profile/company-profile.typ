@@ -53,8 +53,7 @@
         #align(left)[
           *Phone* #h(8pt) #site.phoneDisplay \
           *Email* #h(8pt) #site.email \
-          *Address* #h(8pt) #site.address.street, #site.address.city,
-          #site.address.region #site.address.postalCode, #site.address.country
+          *Address* #h(8pt) #formatted-address
         ]
       ]
     ]
@@ -74,19 +73,12 @@
 
 *#site.legalName* is a Sri Lanka–based company specializing in the supply,
 distribution, and servicing of fire safety equipment and industrial safety
-solutions. The company was established with the vision of providing reliable
-and high-quality fire protection products to businesses, institutions, and
-households throughout Sri Lanka.
+solutions. We provide reliable, high-quality fire protection products to
+businesses, institutions, and households throughout Sri Lanka.
 
-At TSK Ceylon, safety is our highest priority. We understand the importance of
-protecting lives, property, and businesses from fire-related risks. We are
-committed to delivering dependable fire safety solutions that meet modern
-safety standards and customer expectations.
-
-Our company focuses on customer satisfaction, quality assurance, and long-term
-business relationships. Through professional service, affordable pricing, and
-a commitment to excellence, TSK Ceylon aims to become one of the leading names
-in the fire safety industry in Sri Lanka.
+Safety is our highest priority. We are committed to delivering dependable
+fire safety solutions that meet modern safety standards and customer
+expectations.
 
 #s-md
 #eyebrow("Our Four Pillars")
@@ -95,9 +87,9 @@ in the fire safety industry in Sri Lanka.
 #grid(
   columns: (1fr, 1fr, 1fr, 1fr),
   gutter: 12pt,
-  pillar("◆", "Safety Focus",
+  pillar("✓", "Safety Focus",
     [Protecting lives, property, and businesses through effective fire safety solutions.]),
-  pillar("●", "Customer Satisfaction",
+  pillar("♥", "Customer Satisfaction",
     [Exceeding customer expectations with quality products and reliable services.]),
   pillar("★", "Quality Assurance",
     [Supplying quality-tested products and dependable services that meet industry standards.]),
@@ -136,9 +128,9 @@ customers.
 #grid(
   columns: (1fr, 1fr, 1fr, 1fr, 1fr),
   gutter: 12pt,
-  pillar("◆", "Safety First",
-    [Safety is at the centre of everything we do — protecting people, businesses, and property.]),
-  pillar("●", "Customer Trust",
+  pillar("✓", "Safety First",
+    [Safety is at the centre of everything we do, protecting people, businesses, and property.]),
+  pillar("♥", "Customer Trust",
     [Honesty, reliability, and strong relationships are central to our work.]),
   pillar("★", "Quality Assurance",
     [Quality-tested products and dependable services that meet industry expectations.]),
@@ -162,9 +154,8 @@ customers.
 
 #split-title("NATURE", "OF BUSINESS")
 
-*#site.legalName* operates mainly in the field of fire protection and
-industrial safety solutions. We provide products and services designed to
-improve workplace and environmental safety.
+*#site.legalName* operates in fire protection and industrial safety. We
+supply products and services that improve workplace safety.
 
 #s-md
 #two-col(
@@ -208,15 +199,15 @@ improve workplace and environmental safety.
 #grid(
   columns: (1fr, 1fr, 1fr, 1fr, 1fr),
   gutter: 12pt,
-  pillar("◆", "Safety",
+  pillar("✓", "Safety",
     [We prioritize safety in every solution we offer.]),
   pillar("★", "Quality",
     [Quality-tested products and dependable services.]),
-  pillar("●", "Professionalism",
+  pillar("◐", "Professionalism",
     [Professional support with integrity and responsibility.]),
-  pillar("◐", "Reliability",
+  pillar("◆", "Reliability",
     [Committed to timely service and customer trust.]),
-  pillar("⚐", "Partnership",
+  pillar("●", "Partnership",
     [Building long-term relationships with our customers.]),
 )
 
@@ -229,8 +220,8 @@ improve workplace and environmental safety.
 #split-title("OUR", "PRODUCTS")
 
 *#site.legalName* supplies a comprehensive range of high-quality fire
-extinguishers and supporting safety equipment — certified, durable, and
-suited to every environment.
+extinguishers and supporting safety equipment. All of it is certified,
+durable, and suited to your environment.
 
 #s-md
 #grid(
@@ -240,31 +231,31 @@ suited to every environment.
   image-card(
     "/src/assets/images/products/dcp.webp",
     "Dry Powder (DCP / ABC)",
-    [Class A, B, C — the most versatile choice for offices, vehicles, and general-purpose use. Available 1–9 kg.],
+    [Class A, B, C. The most versatile choice for offices, vehicles, and general-purpose use. Available 1–9 kg.],
     accent: navy,
   ),
   image-card(
     "/src/assets/images/products/co2.webp",
     "Carbon Dioxide (CO₂)",
-    [Class B and electrical fires — leaves no residue. Ideal for server rooms, labs, and electronics. 2–5 kg.],
+    [Class B and electrical fires. Leaves no residue. Ideal for server rooms, labs, and electronics. 2–5 kg.],
     accent: red,
   ),
   image-card(
     "/src/assets/images/products/foam.webp",
     "Foam (AFFF)",
-    [Class A and B — smothers flammable-liquid fires and cools solids. For warehouses and workshops. 6 L · 9 L.],
+    [Class A and B. Smothers flammable-liquid fires and cools solids. For warehouses and workshops. 6 L · 9 L.],
     accent: navy,
   ),
   image-card(
     "/src/assets/images/products/water.webp",
     "Water",
-    [Class A — economical and effective on wood, paper, and textiles. Schools, offices, storage. 6 L · 9 L.],
+    [Class A. Economical and effective on wood, paper, and textiles. Schools, offices, storage. 6 L · 9 L.],
     accent: red,
   ),
   image-card(
     "/src/assets/images/products/wet-chemical.webp",
     "Wet Chemical",
-    [Class F — purpose-built for deep-fat fryer and cooking-oil fires in commercial kitchens. 3 L · 6 L.],
+    [Class F. Purpose-built for deep-fat fryer and cooking-oil fires in commercial kitchens. 3 L · 6 L.],
     accent: navy,
   ),
   block(
@@ -277,7 +268,7 @@ suited to every environment.
     #text(size: 9.5pt, weight: 900, fill: red-dark)[#upper("Safety Equipment & Accessories")]
     #v(0.3em)
     #text(size: 8.5pt, fill: ink)[
-      Beyond extinguishers, we supply the full safety ecosystem:
+      Beyond extinguishers, we stock the rest of what a workplace needs:
     ]
     #v(0.3em)
     • Safety signs & warning boards \
@@ -300,8 +291,8 @@ suited to every environment.
 #split-title("OUR", "SERVICES")
 
 Beyond supply, *#site.legalName* delivers the full lifecycle of fire safety
-services — installation, inspection, refilling, training, and design — to
-keep your equipment reliable year after year.
+services: installation, inspection, refilling, training, and design. We keep
+your equipment reliable year after year.
 
 #s-md
 #grid(
@@ -346,7 +337,7 @@ keep your equipment reliable year after year.
 
 #s-md
 #navy-quote([
-  Quality Products. Professional Services. Complete Safety Solutions.
+  Quality products. Professional service. Complete safety solutions.
 ])
 
 #pagebreak()
@@ -369,51 +360,32 @@ tailored to each industry's unique requirements.
   gutter: 12pt,
   row-gutter: 10pt,
   value-card("Commercial Buildings", accent: navy,
-    [Office buildings, business centres, and multi-storey complexes — fire
+    [Office buildings, business centres, and multi-storey complexes. Fire
      safety equipment for safe working environments.]),
   value-card("Industrial & Manufacturing", accent: red,
-    [Factories and manufacturing plants — solutions to protect workers,
+    [Factories and manufacturing plants. Solutions to protect workers,
      equipment, and assets from fire hazards.]),
   value-card("Retail & Shopping Centres", accent: navy,
-    [Retail outlets and shopping complexes — fire protection systems,
+    [Retail outlets and shopping complexes. Fire protection systems,
      equipment, and maintenance for public safety.]),
   value-card("Educational Institutions", accent: red,
-    [Schools, colleges, and training centres — equipment and training
+    [Schools, colleges, and training centres. Equipment and training
      programs for a safer learning environment.]),
   value-card("Healthcare Facilities", accent: navy,
-    [Hospitals, clinics, and medical centres — reliable solutions to protect
+    [Hospitals, clinics, and medical centres. Reliable solutions to protect
      patients and staff.]),
   value-card("Hotels & Hospitality", accent: red,
-    [Hotels, resorts, and restaurants — systems and services that protect
+    [Hotels, resorts, and restaurants. Systems and services that protect
      guests and employees at all times.]),
   value-card("Government & Public Sector", accent: navy,
-    [Government offices, public buildings, and infrastructure — quality
+    [Government offices, public buildings, and infrastructure. Quality
      equipment and maintenance services.]),
   value-card("Residential Complexes", accent: red,
-    [Residential complexes and apartments — extinguishers, alarms, and
+    [Residential complexes and apartments. Extinguishers, alarms, and
      safety equipment to protect families and property.]),
 )
 
-#s-md
-#block(
-  fill: navy, width: 100%,
-  inset: (x: 16pt, y: 13pt),
-  radius: 4pt,
-)[
-  #set text(fill: white)
-  #align(center)[
-    #grid(
-      columns: (1fr, 1fr, 1fr, 1fr),
-      gutter: 12pt,
-      [#text(size: 9.5pt, weight: 900, fill: white)[COMMITTED TO\ EVERY SECTOR]],
-      [#text(size: 9.5pt, weight: 900, fill: white)[DIVERSE INDUSTRY\ EXPERIENCE]],
-      [#text(size: 9.5pt, weight: 900, fill: white)[TAILORED SAFETY\ SOLUTIONS]],
-      [#text(size: 9.5pt, weight: 900, fill: white)[FOCUS ON SAFETY,\ ALWAYS]],
-    )
-  ]
-]
-
-#s-md
+#s-lg
 #align(center)[
   #text(size: 11pt, weight: 900, fill: navy)[
     WHEREVER YOU ARE, WHATEVER YOUR INDUSTRY, \
@@ -433,10 +405,6 @@ tailored to each industry's unique requirements.
 
 #split-title("COMPETITIVE", "ADVANTAGES")
 #text(size: 13pt, weight: 900, fill: navy)[Why Choose TSK Ceylon?]
-#s-xs
-
-At *#site.legalName*, we focus on delivering value, quality, and reliability
-through our products, services, and customer relationships.
 
 #s-md
 #grid(
@@ -482,7 +450,7 @@ through our products, services, and customer relationships.
 
 #s-md
 #quote-band([
-  Quality is our strength. Safety is our commitment. You are our priority.
+  Built on quality. Driven by safety. Focused on you.
 ])
 
 #pagebreak()
@@ -494,7 +462,7 @@ through our products, services, and customer relationships.
 #split-title("COMMITMENT &", "FUTURE DEVELOPMENT")
 
 At *#site.legalName*, our commitment goes beyond today. We continuously invest
-in our people, products, and services to build a safer tomorrow for Sri Lanka.
+in our people, products, and services to build a safer tomorrow.
 
 #s-md
 #two-col(
@@ -551,9 +519,8 @@ in our people, products, and services to build a safer tomorrow for Sri Lanka.
 
 #split-title("QUALITY &", "COMPLIANCE")
 
-At *#site.legalName*, quality and reliability are essential. Every product
-and service is delivered with a strong focus on safety, durability, and
-customer confidence.
+At *#site.legalName*, quality is essential. Every product and service is
+delivered with focus on safety, durability, and customer confidence.
 
 #s-md
 #two-col(
@@ -601,9 +568,9 @@ customer confidence.
       #text(size: 11pt, weight: 900, fill: navy)[OUR QUALITY PHILOSOPHY]
       #v(0.35em)
       #text(size: 9.5pt, fill: ink)[
-        Quality is not just a standard we follow — it is a promise we deliver.
-        We are dedicated to continuous improvement, strong partnerships, and
-        providing safe, reliable, and effective fire protection solutions.
+        For us, quality is a promise, not a checkbox. We keep investing in
+        better products, stronger partnerships, and dependable fire
+        protection.
       ]
     ]
   ],
@@ -618,14 +585,13 @@ customer confidence.
 #split-title("WHY CHOOSE", "TSK CEYLON?")
 
 At *#site.legalName*, we go beyond supplying products. We deliver complete
-fire safety solutions backed by experience, dedication, and a customer-first
-approach.
+fire safety solutions backed by experience and a customer-first approach.
 
 #s-md
 #two-col(
   [
     #numbered-card("01", "Experience You Can Trust",
-      [Industry knowledge and hands-on experience — solutions you can rely on.],
+      [Industry knowledge and hands-on experience. Solutions you can rely on.],
       accent: navy)
     #v(5pt)
     #numbered-card("02", "Quality Products",
@@ -655,7 +621,7 @@ approach.
   [
     #navy-header-card("The TSK Ceylon Difference",
       checklist((
-        [One-stop fire safety solutions — from supply to support],
+        [One-stop fire safety solutions, from supply to support],
         [Wide range of products and services under one roof],
         [Solutions tailored to your industry and environment],
         [Strong focus on quality, safety, and compliance],
@@ -671,7 +637,7 @@ approach.
       #align(center)[
         #text(size: 11pt, weight: 900, style: "italic")[
           " When it comes to fire safety, there is no room for compromise.
-          Choose TSK Ceylon — Your Safety, Our Priority. "
+          Choose TSK Ceylon. Your safety is our priority. "
         ]
       ]
     ]
@@ -684,8 +650,8 @@ approach.
       *YOUR TRUST. OUR RESPONSIBILITY.* \
       #v(0.3em)
       #text(size: 9pt)[
-        We are not just a supplier — we are your partner in creating safer
-        environments for today and a secure tomorrow.
+        We aren't just a supplier. We're your partner in building safer
+        environments today, and a secure tomorrow.
       ]
     ]
   ],
@@ -714,7 +680,7 @@ services, and expert support. *Get in touch with TSK Ceylon today!*
       row-gutter: 9pt,
       align: (left, left),
       text(size: 9pt, weight: 900, fill: navy)[ADDRESS],
-      text(size: 9.5pt)[#site.address.street, #site.address.city, #site.address.region #site.address.postalCode, #site.address.country],
+      text(size: 9.5pt)[#formatted-address],
       text(size: 9pt, weight: 900, fill: navy)[PHONE],
       text(size: 9.5pt)[#site.phoneDisplay],
       text(size: 9pt, weight: 900, fill: navy)[EMAIL],
@@ -775,18 +741,3 @@ services, and expert support. *Get in touch with TSK Ceylon today!*
   ]
 ]
 
-#s-sm
-#block(
-  fill: navy, width: 100%,
-  inset: 14pt, radius: 4pt,
-)[
-  #set text(fill: white, size: 9pt)
-  #grid(
-    columns: (1fr, 1fr, 1fr, 1fr),
-    align: center,
-    [*YOUR SAFETY* \ #text(size: 8pt, fill: rgb("#CBD5E1"))[Our Mission]],
-    [*YOUR TRUST* \ #text(size: 8pt, fill: rgb("#CBD5E1"))[Our Motivation]],
-    [*YOUR SATISFACTION* \ #text(size: 8pt, fill: rgb("#CBD5E1"))[Our Commitment]],
-    [*A SAFER TOMORROW* \ #text(size: 8pt, fill: rgb("#CBD5E1"))[Our Goal]],
-  )
-]
