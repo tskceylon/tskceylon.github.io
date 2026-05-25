@@ -11,7 +11,7 @@ export const site: SiteConfig = {
   phoneHref: '+94779332250',
   whatsappNumber: '94779332250',
   whatsappMessage: 'Hello TSK Ceylon, I would like a quote for fire extinguishers.',
-  email: 'info@tskceylon.lk',               // PLACEHOLDER — real email
+  email: 'tskceylonpvt@gmail.com',
   address: {
     street: '100/H/4, Sama Mawatha, Niwanthiya',
     city: 'Piliyandala',
